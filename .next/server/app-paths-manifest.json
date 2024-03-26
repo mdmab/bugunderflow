@@ -1,8 +1,5 @@
 {
   "/thread/[qid]/page": "app/thread/[qid]/page.js",
   "/api/threads/get/route": "app/api/threads/get/route.js",
-  "/home/page": "app/home/page.js",
-  "/api/threads/get-all/route": "app/api/threads/get-all/route.js",
-  "/api/threads/post-reply/route": "app/api/threads/post-reply/route.js",
-  "/api/threads/remove-reply/route": "app/api/threads/remove-reply/route.js"
+  "/home/page": "app/home/page.js"
 }
