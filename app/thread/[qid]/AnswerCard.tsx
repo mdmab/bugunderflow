@@ -3,12 +3,15 @@ import React from 'react'
 
 const trashIconSize = 17
 
+const serverUrl = "localhost"
+
 async function deleteAnswer(qid_: number, aid_: number) {
-  fetch("http://localhost:3000/api/threads/remove-reply", {
+  fetch("http://" + serverUrl + ":3000/api/threads/remove-reply", {
     method: "POST",
     mode: "cors",
     headers: {
-      "Content-Type" : "application/json"
+      "Content-Type" : "application/json",
+      'Access-Control-Allow-Origin': "*"
     },
     body: JSON.stringify({
       qid: qid_,

@@ -4,15 +4,12 @@ import QuestionCard from './QuestionCard'
 import { redirect } from 'next/navigation'
 
 async function fetchQuestions() {
-  // let response = await fetch("http://localhost:4000/api/threads/get-all", {
-  //   method: "GET",
-  //   mode: "cors"
-  // })  // An array of questions (jsons)
-
-  // let r = response.json()
-  return (await fetch("http://localhost:3000/api/threads/get-all", {
+  return (await fetch("http://0.0.0.0:3000/api/threads/get-all", {
     method: "GET",
-    mode: "cors"
+    mode: "cors",
+    headers: {
+      'Access-Control-Allow-Origin': "*"
+    }
   })).json()
 }
 
@@ -30,48 +27,6 @@ const Threads = async () => {
             replyCount="100" upvotes="10" downvotes="10"/>
           )
         }
-        {/* <QuestionCard question={"" + questions.length}
-                      user="user-1" time="00:00:00"
-                      replyCount="100" upvotes="10" downvotes="10" /> */}
-        {/* <QuestionCard question="What is a lazy fox without a tail called?"
-                      user="user-1" time="00:00:00"
-                      replyCount="100" upvotes="10" downvotes="10" />
-        <QuestionCard question="How to make a makefile, huh?"
-                      user="user-2" time="00:01:00"
-                      replyCount="420" upvotes="10" downvotes="100" />
-        <QuestionCard question="How to make a makefile, huh?"
-                      user="user-2" time="00:01:00"
-                      replyCount="420" upvotes="10" downvotes="100" />
-        <QuestionCard question="How to make a makefile, huh?"
-                      user="user-2" time="00:01:00"
-                      replyCount="420" upvotes="10" downvotes="100" />
-        <QuestionCard question="How to make a makefile, huh?"
-                      user="user-2" time="00:01:00"
-                      replyCount="420" upvotes="10" downvotes="100" />
-        <QuestionCard question="How to make a makefile, huh?"
-                      user="user-2" time="00:01:00"
-                      replyCount="420" upvotes="10" downvotes="100" />
-        <QuestionCard question="How to make a makefile, huh?"
-                      user="user-2" time="00:01:00"
-                      replyCount="420" upvotes="10" downvotes="100" />
-        <QuestionCard question="How to make a makefile, huh?"
-                      user="user-2" time="00:01:00"
-                      replyCount="420" upvotes="10" downvotes="100" />
-        <QuestionCard question="How to make a makefile, huh?"
-                      user="user-2" time="00:01:00"
-                      replyCount="420" upvotes="10" downvotes="100" />
-        <QuestionCard question="How to make a makefile, huh?"
-                      user="user-2" time="00:01:00"
-                      replyCount="420" upvotes="10" downvotes="100" />
-        <QuestionCard question="How to make a makefile, huh?"
-                      user="user-2" time="00:01:00"
-                      replyCount="420" upvotes="10" downvotes="100" />
-        <QuestionCard question="How to make a makefile, huh?"
-                      user="user-2" time="00:01:00"
-                      replyCount="420" upvotes="10" downvotes="100" />
-        <QuestionCard question="How to make a makefile, huh?"
-                      user="user-2" time="00:01:00"
-                      replyCount="420" upvotes="10" downvotes="100" /> */}
       </ScrollArea>
     </div>
   )

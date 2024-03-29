@@ -20,8 +20,12 @@ export async function GET(req: NextRequest) {
   }
 
   console.log("[Fetch] Thread with qid " + qid + " successfully found.")
+
   return NextResponse.json({
     found: true,
-    thread: response
+    thread: response,
+    headers: {
+      'Access-Control-Allow-Origin': "*"
+    }
   })
 }

@@ -158,3 +158,22 @@
 .answer-card {
   padding: 0.3em 1em;
 }
+
+.add-new-thread-button {
+  margin: 1em;
+  background-color: rgb(0, 180, 120);
+  padding: 0.3em;
+  border-radius: 0.5em;
+  font-family: sans-serif;
+  font-size: 1.1em;
+  color: rgb(50, 50, 50);
+  border-width: 0.1em;
+  border-color: rgb(0, 180, 120);
+}
+
+.add-new-thread-button:hover {
+  background-color: rgb(0, 150, 90);
+  color: black;
+  border-width: 0.1em;
+  border-color: rgb(0, 110, 70);
+}
