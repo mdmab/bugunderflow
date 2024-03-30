@@ -622,6 +622,9 @@ video {
 .h-\[20vh\] {
   height: 20vh;
 }
+.h-\[50vh\] {
+  height: 50vh;
+}
 .h-\[85vh\] {
   height: 85vh;
 }
@@ -1061,23 +1064,49 @@ video {
   padding: 0.3em 1em;
 }
 
-.add-new-thread-button {
-  margin: 1em;
+.submit-button, .add-new-thread-button {
   background-color: rgb(0, 180, 120);
+  border-color: rgb(0, 180, 120);
+  color: rgb(50, 50, 50);
   padding: 0.3em;
   border-radius: 0.5em;
   font-family: sans-serif;
   font-size: 1.1em;
-  color: rgb(50, 50, 50);
   border-width: 0.1em;
-  border-color: rgb(0, 180, 120);
 }
 
-.add-new-thread-button:hover {
+.submit-button:hover, .add-new-thread-button:hover {
   background-color: rgb(0, 150, 90);
   color: black;
   border-width: 0.1em;
   border-color: rgb(0, 110, 70);
+}
+
+.add-new-thread-button {
+  padding: 0.3em;
+  margin: 1em;
+}
+
+.submit-button {
+  padding: 0.3em 1.2em;
+}
+
+.new-thread-title-holder {
+  width: 20vw;
+  align-content: top center;
+  text-align: right;
+  padding: 1em;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: large;
+}
+
+.new-thread-textarea-holder {
+  margin: 0.5em;
+  border-width: 0.1em;
+  border-radius: 0.2em;
+  border-color: black;
+  padding: 0.3em;
 }
 
 .before\:absolute::before {

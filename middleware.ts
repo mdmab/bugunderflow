@@ -6,8 +6,11 @@ export default authMiddleware({
   // publicRoutes: ['/anyone-can-visit-this-route'],
   publicRoutes: ['/',
                  '/home',
+                 '/threads/new',
+
                  '/api/threads/get-all',
                  '/api/threads/get',
+                 '/api/threads/post-thread',
                  '/api/threads/post-reply',
                  '/api/threads/remove-reply'
                 //  '/mobile'

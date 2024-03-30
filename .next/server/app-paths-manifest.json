@@ -1,5 +1,7 @@
 {
   "/home/page": "app/home/page.js",
   "/thread/[qid]/page": "app/thread/[qid]/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/sign-in/[[...sign-in]]/page": "app/sign-in/[[...sign-in]]/page.js",
+  "/thread/new/page": "app/thread/new/page.js",
+  "/api/threads/post-thread/route": "app/api/threads/post-thread/route.js"
 }

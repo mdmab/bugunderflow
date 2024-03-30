@@ -27,6 +27,21 @@ export async function retrieveThreadById(id) {
     return db.collection("new_questions").findOne({ qid: Number(id) })
 }
 
+export async function retrieveMaxQid() {
+    console.log("[DEBUG | RETREIVE] Retrieving the max qid...")
+    const maxQidThread = await db.collection("new_questions").find({}, {
+        "_id" : 0,
+        "qid" : 1
+    }).sort({"qid" : -1}).limit(1).toArray()
+    console.log("*** SUCCESS ***")
+
+    return maxQidThread[0].qid
+}
+
+export async function retrieveNextQid() {
+    return (await retrieveMaxQid()) + 1
+}
+
 export async function postReply(qid, aid, content, author, creationTime) {
     console.log('[DEBUG | POST] Adding a new reply to the question with qid ' + qid)
     db.collection("new_questions").updateOne({ qid: Number(qid) }, {
