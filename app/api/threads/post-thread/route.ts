@@ -1,24 +1,27 @@
 import { NextRequest, NextResponse } from "next/server";
-const { retrieveMaxQid, retrieveNextQid } = require("../../../db/threads")
+const { retrieveMaxQid, retrieveNextQid, postThread } = require("../../../db/threads")
 
 /**
  *  Question:
+        qid
         title
         content
         tags
         views
         upvotes
+        upvoters
         downvotes
-        author
+        downvoters
+        authorUsername
         answers
-        creation_time
+        createdAt
  */
 
 export async function POST(request: NextRequest) {
-  const newQid = await retrieveNextQid()
+  const body = await request.json()
+  await postThread(body.title, body.content, body.tags, body.authorUsername, body.createdAt)
 
   return NextResponse.json({
-    response: "found",
-    newQid: newQid
+    successful: true
   })
 }

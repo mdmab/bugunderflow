@@ -42,6 +42,29 @@ export async function retrieveNextQid() {
     return (await retrieveMaxQid()) + 1
 }
 
+export async function postThread(title, content, tags, authorUsername, createdAt) {
+    // To be implemented...
+    console.log("[POST] Creating a new thread...")
+    const nqid = await retrieveNextQid()
+
+    await db.collection("new_questions").insertOne({
+        "qid" : Number(nqid),
+        "title" : title,
+        "content" : content,
+        "tags" : tags,
+        "views" : 0,
+        "upvotes" : 0,
+        "downvotes" : 0,
+        "upvoters" : [],
+        "downvoters" : [],
+        "answers" : [],
+        "authorUsername" : authorUsername,
+        "createdAt" : createdAt
+    })
+
+    console.log("*** SUCCESS ***")
+}
+
 export async function postReply(qid, aid, content, author, creationTime) {
     console.log('[DEBUG | POST] Adding a new reply to the question with qid ' + qid)
     db.collection("new_questions").updateOne({ qid: Number(qid) }, {

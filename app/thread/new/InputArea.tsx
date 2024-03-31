@@ -1,10 +1,14 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
+
+const { prettyDate } = require("../../db/basics")
 
 const InputArea = () => {
   const [title, setTitle] = useState("")
   const [desc, setDesc] = useState("")
+  const router = useRouter()
 
   return (
     <>
@@ -22,7 +26,25 @@ const InputArea = () => {
 
       <div className='flex grow items-center justify-center'>
         <input type="button" value="Submit" className='submit-button'
-        onClick={() => alert(title + "\n" + desc + "\n")}/>
+        onClick={() =>
+          fetch('http://localhost:3000/api/threads/post-thread', {
+            method: "POST",
+            mode: "cors",
+            headers: {
+              "Content-Type" : "application/json"
+            },
+            body: JSON.stringify({
+              title: title,
+              content: desc,
+              tags: [],
+              authorUsername: "mdmab",
+              createdAt: prettyDate(new Date())
+            })
+          }).then(() => {
+            router.push('/home')
+          })
+        }
+        />
       </div>
     </>
   )
