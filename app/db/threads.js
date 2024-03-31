@@ -27,6 +27,12 @@ export async function retrieveThreadById(id) {
     return db.collection("new_questions").findOne({ qid: Number(id) })
 }
 
+export async function deleteThreadById(id) {
+    console.log("[DELETE] Deleting thread with qid " + id + "...")
+    await db.collection("new_questions").deleteOne({"qid" : Number(id)})
+    console.log("*** SUCCESS ***")
+}
+
 export async function retrieveMaxQid() {
     console.log("[DEBUG | RETREIVE] Retrieving the max qid...")
     const maxQidThread = await db.collection("new_questions").find({}, {

@@ -12,7 +12,8 @@ export default authMiddleware({
                  '/api/threads/get',
                  '/api/threads/post-thread',
                  '/api/threads/post-reply',
-                 '/api/threads/remove-reply'
+                 '/api/threads/remove-reply',
+                 '/api/threads/remove-thread'
                 //  '/mobile'
                 ]
   // Routes that can always be accessed, and have

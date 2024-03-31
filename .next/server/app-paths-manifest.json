@@ -1,8 +1,9 @@
 {
-  "/api/threads/get/route": "app/api/threads/get/route.js",
   "/home/page": "app/home/page.js",
   "/thread/[qid]/page": "app/thread/[qid]/page.js",
-  "/api/threads/post-thread/route": "app/api/threads/post-thread/route.js",
+  "/thread/new/page": "app/thread/new/page.js",
   "/api/threads/get-all/route": "app/api/threads/get-all/route.js",
-  "/thread/new/page": "app/thread/new/page.js"
+  "/api/threads/post-thread/route": "app/api/threads/post-thread/route.js",
+  "/api/threads/get/route": "app/api/threads/get/route.js",
+  "/api/threads/remove-thread/route": "app/api/threads/remove-thread/route.js"
 }
