@@ -18,7 +18,7 @@ async function deleteThread(qid: string, router: AppRouterInstance) {
   })
 
   console.log("Refreshing the router...")
-  router.replace("/home")
+  router.push("/home")
 }
 
 const QuestionCard = ({ qid="", question="", user="", time="", replyCount="0", upvotes="0", downvotes="0" } : 
