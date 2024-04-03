@@ -5,7 +5,7 @@ const trashIconSize = 17
 
 const serverUrl = "localhost"
 
-async function deleteAnswer(qid_: number, aid_: number) {
+function deleteAnswer(qid_: number, aid_: number) {
   fetch("http://" + serverUrl + ":3000/api/threads/remove-reply", {
     method: "POST",
     mode: "cors",
@@ -41,9 +41,17 @@ const AnswerCard = ({ qid=0, aid=0, author="", content="", upvotes=0, downvotes=
         <div> {content} </div>
         <div className='flex grow space-content-between' style={{ "fontWeight" : "bold" }}>
           <div className='flex space-x-5'>
-            <div className='hover:bg-gray-200' style={{ "padding": "0.2em" }}> {upvotes} </div>
-            <div className='hover:bg-gray-200' style={{ "padding": "0.2em" }}> {downvotes} </div>
-            <div className='hover:bg-gray-200' style={{ "padding": "0.2em" }} onClick={() => {
+            <div className='flex hover:bg-gray-200' style={{ "padding": "0.2em" }}>
+              <img src="/assets/icons/upvote.svg" width={20} height={20} />
+              {upvotes}
+            </div>
+            
+            <div className='flex hover:bg-gray-200' style={{ "padding": "0.2em" }}>
+            <img src="/assets/icons/downvote.svg" width={20} height={20} />
+              {downvotes}
+            </div>
+            
+            <div className='flex hover:bg-gray-200' style={{ "padding": "0.2em" }} onClick={() => {
               deleteAnswer(qid, aid)
               router.refresh()
             }}

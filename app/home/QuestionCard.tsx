@@ -31,7 +31,8 @@ const QuestionCard = ({ qid="", question="", user="", time="", replyCount="0", u
       <div className='flex-col grow question-card'>
         <div className='flex question-card-global question'>
           <div className='flex flex-row grow justify-between'>
-            <div className='hover:underline hover:cursor-pointer' onClick={() => router.push('/thread/' + qid)}>
+            <div className='hover:underline hover:cursor-pointer'
+            onClick={() => router.push('/thread/' + qid)}>
               {question}
             </div>
             <img src="/assets/icons/trash_dark.svg" width={20} height={20} className='hover:cursor-pointer'
@@ -52,10 +53,16 @@ const QuestionCard = ({ qid="", question="", user="", time="", replyCount="0", u
         </div>
         <div className='question-card-global'> {user} </div>
 
-        <div className='flex place-content-between'>
+        <div className='flex place-content-between question-card-global'>
           <div className='flex place-content-end space-x-2'>
-            <div className='question-card-global question-card-info'> {upvotes} </div>
-            <div className='question-card-global question-card-info'> {downvotes} </div>
+            <div className='flex question-card-global question-card-info'>
+              <img src="/assets/icons/upvote.svg" width={20} height={20} />
+              {upvotes}
+            </div>
+            <div className='flex question-card-global question-card-info'>
+              <img src="/assets/icons/downvote.svg" width={20} height={20} />
+              {downvotes}
+            </div>
           </div>
 
           <div className='question-card-global question-card-info'> Replies: {replyCount} </div>

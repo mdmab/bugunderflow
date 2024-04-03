@@ -19,12 +19,47 @@ let db = client.db(process.env.DB_NAME)
 
 export async function retrieveThreads() {
     console.log("[Fetch] Fetching the list of threads...")
-    return db.collection("new_questions").find().toArray()
+    let res = (await db.collection("new_questions").find({}, {
+        "projection": {
+            "qid": 1,
+            "title" : 1,
+            "content" : 1,
+            "tags" : 1,
+            "views" : 1,
+            "upvotes" : {
+                "$size" : "$upvoters"
+            },
+            "downvotes" : {
+                "$size" : "$downvoters"
+            },
+            "upvoters" : 1,
+            "downvoters" : 1,
+            "authorUsername" : 1,
+            "createdAt" : 1,
+            "answerCount" : {
+                "$size" : "$answers"
+            },
+            "answers" : 1,
+        }
+    }).toArray())
+
+    return res
 }
 
 export async function retrieveThreadById(id) {
     console.log("[DEBUG] qid " + id)
     return db.collection("new_questions").findOne({ qid: Number(id) })
+}
+
+export async function getAnswerCountByQid(id) {
+    console.log("[DEBUG | GET] Getting the number of answers for qid " + id + "...")
+    return (await db.collection("new_questions").findOne({ qid: Number(id) }, {
+        "projection" : {
+            "aCount" : {
+                "$size" : "$answers"
+            }
+        }
+    }))
 }
 
 export async function deleteThreadById(id) {
@@ -81,6 +116,8 @@ export async function postReply(qid, aid, content, author, creationTime) {
                 "views" : 0,
                 "upvotes" : 0,
                 "downvotes" : 0,
+                "upvoters" : [],
+                "downvoters" : [],
                 "createdAt" : creationTime,
                 "content" : content
             }

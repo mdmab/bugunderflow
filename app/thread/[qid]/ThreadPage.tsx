@@ -61,7 +61,7 @@ const ThreadPage = async ({qid="0", refreshFunc} : {qid: string, refreshFunc: ()
       <ScrollArea className='flex-col grow justify-center h-[85vh] w-[100vw] thread-scroll-area'>
         <div className='flex-col grow'>
           <div className='thread-question'> {quesThread.thread.title} </div>
-          <div> by {quesThread.thread.authorUsername} </div>
+          <div style={{"fontStyle" : "italic"}}> by {quesThread.thread.authorUsername} </div>
           <div className='thread-desc'> {quesThread.thread.content} </div>
           
           <div className='flex grow place-content-between items-center thread-misc'>

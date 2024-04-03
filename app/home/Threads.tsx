@@ -37,11 +37,12 @@ const Threads = () => {
       <ScrollArea className='flex-col justify-center h-[85vh] w-[80vw] scroll-area'>
         {
           !loaded ? <></> : questions?.map((ques: { qid: string, title: string, authorUsername: string,
-            answerCount: string, createdAt: string }) =>
+            answerCount: string, createdAt: string, upvotes: string, downvotes: string }) =>
             <QuestionCard key={ques.qid}
             qid={ques.qid} question={ques.title}
             user={ques.authorUsername} time={ques.createdAt}
-            replyCount={ques.answerCount} upvotes="10" downvotes="10"/>
+            replyCount={ques.answerCount}
+            upvotes={ques.upvotes} downvotes={ques.downvotes}/>
           )
         }
       </ScrollArea>

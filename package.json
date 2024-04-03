@@ -24,7 +24,8 @@
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "dotenv": "latest",
-    "xmlhttprequest": "latest"
+    "xmlhttprequest": "latest",
+    "promise-mysql": "latest"
   },
   "devDependencies": {
     "@types/node": "^20",
