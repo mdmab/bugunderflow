@@ -737,15 +737,15 @@ video {
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
+.space-x-20 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(5rem * var(--tw-space-x-reverse));
+  margin-left: calc(5rem * calc(1 - var(--tw-space-x-reverse)));
+}
 .space-x-5 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1.25rem * var(--tw-space-x-reverse));
   margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
-}
-.space-x-1 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(0.25rem * var(--tw-space-x-reverse));
-  margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .overflow-hidden {
   overflow: hidden;
@@ -782,6 +782,9 @@ video {
 }
 .border-l-2 {
   border-left-width: 2px;
+}
+.border-r-2 {
+  border-right-width: 2px;
 }
 .border-t {
   border-top-width: 1px;
@@ -1121,6 +1124,24 @@ video {
   border-radius: 0.2em;
   border-color: black;
   padding: 0.3em;
+}
+
+.navigation-button-unselected, .navigation-button-selected {
+  height: 7vh;
+  font-family: sans-serif;
+  font-size: 1.1em;
+}
+
+.navigation-button-unselected:hover {
+  background: rgb(220, 220, 220);
+}
+
+.navigation-button-selected {
+  background-color: rgb(180, 230, 250);
+}
+
+.navigation-button-selected:hover {
+  background-color: rgb(160, 210, 250);
 }
 
 .before\:absolute::before {

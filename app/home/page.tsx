@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import TopbarPc from './TopbarPc'
 import Threads from './Threads'
 import Sidebar from './Sidebar'
+import NavigationBar from './NavigationBar'
 
 const Homepage = () => {
   return (
@@ -11,6 +12,7 @@ const Homepage = () => {
     {/* <TopbarPc /> */}
     <TopbarPc />
     <div className='flex'>
+      <NavigationBar />
       <Threads />
       <Sidebar />
     </div>

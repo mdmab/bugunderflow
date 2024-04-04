@@ -38,8 +38,8 @@ export async function retrieveThreads() {
             "createdAt" : 1,
             "answerCount" : {
                 "$size" : "$answers"
-            },
-            "answers" : 1,
+            }
+            // "answers" : 1,
         }
     }).toArray())
 
@@ -48,7 +48,43 @@ export async function retrieveThreads() {
 
 export async function retrieveThreadById(id) {
     console.log("[DEBUG] qid " + id)
-    return db.collection("new_questions").findOne({ qid: Number(id) })
+    return db.collection("new_questions").findOne({ qid: Number(id) }, {
+        "projection" : {
+            "qid": 1,
+            "title" : 1,
+            "content" : 1,
+            "tags" : 1,
+            "views" : 1,
+            "upvotes" : {
+                "$size" : "$upvoters"
+            },
+            "downvotes" : {
+                "$size" : "$downvoters"
+            },
+            "upvoters" : 1,
+            "downvoters" : 1,
+            "authorUsername" : 1,
+            "createdAt" : 1,
+            "answerCount" : {
+                "$size" : "$answers"
+            },
+            "answers" : {
+                "aid" : 1,
+                "authorUsername" : 1,
+                "views" : 1,
+                "createdAt" : 1,
+                "content" : 1,
+                "upvotes" : {
+                    "$size" : "$upvoters"
+                },
+                "downvotes" : {
+                    "$size" : "$downvoters"
+                },
+                "upvoters" : 1,
+                "downvoters" : 1
+            }
+        }
+    })
 }
 
 export async function getAnswerCountByQid(id) {

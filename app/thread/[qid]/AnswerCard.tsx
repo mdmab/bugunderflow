@@ -47,7 +47,7 @@ const AnswerCard = ({ qid=0, aid=0, author="", content="", upvotes=0, downvotes=
             </div>
             
             <div className='flex hover:bg-gray-200' style={{ "padding": "0.2em" }}>
-            <img src="/assets/icons/downvote.svg" width={20} height={20} />
+              <img src="/assets/icons/downvote.svg" width={20} height={20} />
               {downvotes}
             </div>
             

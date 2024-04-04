@@ -66,10 +66,16 @@ const ThreadPage = async ({qid="0", refreshFunc} : {qid: string, refreshFunc: ()
           
           <div className='flex grow place-content-between items-center thread-misc'>
             <div className='flex grow space-x-2'>
-              <div> {quesThread.thread.upvotes} </div>
-              <div> {quesThread.thread.downvotes} </div>
+              <div className='flex'>
+                <img src="/assets/icons/upvote.svg" width={20} height={20} />
+                {quesThread.thread.upvotes}
+              </div>
+              <div className='flex'>
+                <img src="/assets/icons/downvote.svg" width={20} height={20} />
+                {quesThread.thread.downvotes}
+              </div>
             </div>
-            <div className='flex grow place-content-end space-x-5'>
+            <div className='flex grow place-content-end space-x-20'>
               <div> Views: {quesThread.thread.views} </div>
               <div> Creation time: {quesThread.thread.createdAt} </div>
             </div>

@@ -206,3 +206,21 @@
   border-color: black;
   padding: 0.3em;
 }
+
+.navigation-button-unselected, .navigation-button-selected {
+  height: 7vh;
+  font-family: sans-serif;
+  font-size: 1.1em;
+}
+
+.navigation-button-unselected:hover {
+  background: rgb(220, 220, 220);
+}
+
+.navigation-button-selected {
+  background-color: rgb(180, 230, 250);
+}
+
+.navigation-button-selected:hover {
+  background-color: rgb(160, 210, 250);
+}
