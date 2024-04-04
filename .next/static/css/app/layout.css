@@ -655,14 +655,20 @@ video {
 .w-\[100vw\] {
   width: 100vw;
 }
+.w-\[15vw\] {
+  width: 15vw;
+}
 .w-\[20vw\] {
   width: 20vw;
 }
 .w-\[50vw\] {
   width: 50vw;
 }
-.w-\[80vw\] {
-  width: 80vw;
+.w-\[70vw\] {
+  width: 70vw;
+}
+.w-\[85vw\] {
+  width: 85vw;
 }
 .w-\[90vw\] {
   width: 90vw;
@@ -1039,7 +1045,7 @@ video {
 }
 
 .thread-scroll-area {
-  padding: 1em 15em;
+  padding: 1em 8em;
   font-family: sans-serif;
 }
 

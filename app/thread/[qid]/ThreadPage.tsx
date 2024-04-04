@@ -1,7 +1,9 @@
-import TopbarPc from '@/app/home/TopbarPc'
+import TopbarPc from '@/app/home_base/TopbarPc'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import React from 'react'
 import AnswerCard from './AnswerCard'
+import NavigationBar from '@/app/home_base/NavigationBar'
+import { NAV_NONE } from '@/app/home_base/constants'
 
 const serverUrl = "localhost"
 
@@ -58,58 +60,62 @@ const ThreadPage = async ({qid="0", refreshFunc} : {qid: string, refreshFunc: ()
   return (
     <div className='flex-col h-[100vh]'>
       <TopbarPc />
-      <ScrollArea className='flex-col grow justify-center h-[85vh] w-[100vw] thread-scroll-area'>
-        <div className='flex-col grow'>
-          <div className='thread-question'> {quesThread.thread.title} </div>
-          <div style={{"fontStyle" : "italic"}}> by {quesThread.thread.authorUsername} </div>
-          <div className='thread-desc'> {quesThread.thread.content} </div>
-          
-          <div className='flex grow place-content-between items-center thread-misc'>
-            <div className='flex grow space-x-2'>
-              <div className='flex'>
-                <img src="/assets/icons/upvote.svg" width={20} height={20} />
-                {quesThread.thread.upvotes}
-              </div>
-              <div className='flex'>
-                <img src="/assets/icons/downvote.svg" width={20} height={20} />
-                {quesThread.thread.downvotes}
-              </div>
-            </div>
-            <div className='flex grow place-content-end space-x-20'>
-              <div> Views: {quesThread.thread.views} </div>
-              <div> Creation time: {quesThread.thread.createdAt} </div>
-            </div>
-          </div>
+      <div className='flex grow w-[100vw]'>
+        <NavigationBar mode={NAV_NONE} />
 
-          <div className='flex grow items-center justify-center' style={{ "padding" : "2em 0" }}>
-            <textarea name='comment-box' className='comment-box h-[20vh] w-[50vw]'
-            onChange={(event) => {reply = event.target.value}}/>
+        <ScrollArea className='flex-col grow justify-center h-[85vh] w-[85vw] thread-scroll-area'>
+          <div className='flex-col grow'>
+            <div className='thread-question'> {quesThread.thread.title} </div>
+            <div style={{"fontStyle" : "italic"}}> by {quesThread.thread.authorUsername} </div>
+            <div className='thread-desc'> {quesThread.thread.content} </div>
             
-            <button className='comment-button'
-            onClick={() => {
-              postReply(qid, maxAid + 1, "mdmab_sust", reply, new Date())
-              refreshFunc()
-            }}>
-              Comment
-            </button>
-          </div>
+            <div className='flex grow place-content-between items-center thread-misc'>
+              <div className='flex grow space-x-2'>
+                <div className='flex'>
+                  <img src="/assets/icons/upvote.svg" width={20} height={20} />
+                  {quesThread.thread.upvotes}
+                </div>
+                <div className='flex'>
+                  <img src="/assets/icons/downvote.svg" width={20} height={20} />
+                  {quesThread.thread.downvotes}
+                </div>
+              </div>
+              <div className='flex grow place-content-end space-x-20'>
+                <div> Views: {quesThread.thread.views} </div>
+                <div> Creation time: {quesThread.thread.createdAt} </div>
+              </div>
+            </div>
 
-          <div className='flex-col grow justify-center'>
-          {
-            quesThread.thread.answers.sort((ans: {aid: number}, ans2: {aid: number}) => ans2.aid - ans.aid)
-            .map((ans : {aid: number, authorUsername: string, content: string,
-              upvotes: number, downvotes: number, createdAt: string
-            }) =>
-              <AnswerCard key={ans.aid} qid={Number(qid)} aid={ans.aid}
-              author={ans.authorUsername} content={ans.content}
-              upvotes={ans.upvotes} downvotes={ans.downvotes} creationTime={ans.createdAt}/>
-            )
-          }
-          </div>
+            <div className='flex grow items-center justify-center' style={{ "padding" : "2em 0" }}>
+              <textarea name='comment-box' className='comment-box h-[20vh] w-[50vw]'
+              onChange={(event) => {reply = event.target.value}}/>
+              
+              <button className='comment-button'
+              onClick={() => {
+                postReply(qid, maxAid + 1, "mdmab_sust", reply, new Date())
+                refreshFunc()
+              }}>
+                Comment
+              </button>
+            </div>
 
-          <div style={{ "padding" : "2em" }}></div>
-        </div>
-      </ScrollArea>
+            <div className='flex-col grow justify-center'>
+            {
+              quesThread.thread.answers.sort((ans: {aid: number}, ans2: {aid: number}) => ans2.aid - ans.aid)
+              .map((ans : {aid: number, authorUsername: string, content: string,
+                upvotes: number, downvotes: number, createdAt: string
+              }) =>
+                <AnswerCard key={ans.aid} qid={Number(qid)} aid={ans.aid}
+                author={ans.authorUsername} content={ans.content}
+                upvotes={ans.upvotes} downvotes={ans.downvotes} creationTime={ans.createdAt}/>
+              )
+            }
+            </div>
+
+            <div style={{ "padding" : "2em" }}></div>
+          </div>
+        </ScrollArea>
+      </div>
     </div>
   )
 }

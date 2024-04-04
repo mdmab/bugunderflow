@@ -1,6 +1,6 @@
 'use client'
 
-import TopbarPc from '@/app/home/TopbarPc'
+import TopbarPc from '@/app/home_base/TopbarPc'
 import { ScrollArea } from '@radix-ui/react-scroll-area'
 import { redirect, useParams, useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'

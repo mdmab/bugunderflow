@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import TopbarPc from './TopbarPc'
-import Threads from './Threads'
-import Sidebar from './Sidebar'
-import NavigationBar from './NavigationBar'
+import TopbarPc from '../home_base/TopbarPc'
+import Threads from '../home_base/Threads'
+import Sidebar from '../home_base/Sidebar'
+import NavigationBar from '../home_base/NavigationBar'
+import { NAV_HOME } from '../home_base/constants'
 
 const Homepage = () => {
   return (
@@ -12,7 +13,7 @@ const Homepage = () => {
     {/* <TopbarPc /> */}
     <TopbarPc />
     <div className='flex'>
-      <NavigationBar />
+      <NavigationBar mode={NAV_HOME} />
       <Threads />
       <Sidebar />
     </div>

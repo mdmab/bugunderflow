@@ -2,7 +2,7 @@
 
 import { ScrollArea } from '@/components/ui/scroll-area'
 import React, { useEffect, useMemo, useState } from 'react'
-import QuestionCard from './QuestionCard'
+import QuestionCard from '../home/QuestionCard'
 import { redirect, useRouter } from 'next/navigation'
 
 // async function fetchQuestions() {
@@ -33,8 +33,8 @@ const Threads = () => {
   }, [])
 
   return (
-    <div className='flex-col h-[85vh] w-[80vw]'>
-      <ScrollArea className='flex-col justify-center h-[85vh] w-[80vw] scroll-area'>
+    <div className='flex-col h-[85vh] w-[70vw]'>
+      <ScrollArea className='flex-col justify-center h-[85vh] w-[70vw] scroll-area'>
         {
           !loaded ? <></> : questions?.map((ques: { qid: string, title: string, authorUsername: string,
             answerCount: string, createdAt: string, upvotes: string, downvotes: string }) =>

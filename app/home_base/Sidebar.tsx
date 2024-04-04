@@ -3,7 +3,7 @@ import AddNewThreadButton from './AddNewThreadButton'
 
 const Sidebar = () => {
   return (
-    <div className='flex-col h-[85vh] w-[20vw] border-l-2 border-grey'>
+    <div className='flex-col h-[85vh] w-[15vw] border-l-2 border-grey'>
       <AddNewThreadButton />
     </div>
   )

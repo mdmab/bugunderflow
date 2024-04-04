@@ -1,4 +1,4 @@
-import TopbarPc from '@/app/home/TopbarPc'
+import TopbarPc from '@/app/home_base/TopbarPc'
 import React, { useState } from 'react'
 import InputArea from './InputArea'
 
