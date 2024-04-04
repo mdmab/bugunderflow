@@ -211,16 +211,21 @@
   height: 7vh;
   font-family: sans-serif;
   font-size: 1.1em;
+  border-width: 0 0.2em 0 0;
+  border-color: rgba(0, 0, 0, 0);
 }
 
 .navigation-button-unselected:hover {
   background: rgb(220, 220, 220);
+  cursor: pointer;
 }
 
 .navigation-button-selected {
   background-color: rgb(180, 230, 250);
+  border-color: rgb(80, 100, 150);
 }
 
 .navigation-button-selected:hover {
   background-color: rgb(160, 210, 250);
+  cursor: pointer;
 }
