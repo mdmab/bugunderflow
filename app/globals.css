@@ -231,10 +231,37 @@
 }
 
 .tag-word {
-  background-color: rgb(187, 196, 217);
-  padding: 0.2em;
+  background-color: rgb(192, 195, 201);
+  padding: 0.3em;
   border-radius: 0.2em;
   margin: 0.3em 0;
   font-size: 0.9em;
   cursor: pointer;
+  font-family: sans-serif;
+}
+
+.search-bar {
+  background-color: rgb(241, 241, 241);
+  border-width: 0.1em;
+  border-color: rgb(190, 190, 190);
+  border-radius: 0.3em;
+  padding: 0.3em;
+  font-family: sans-serif;
+}
+
+.search-button {
+  border-width: 0.1em;
+  border-color: rgb(0, 0, 0, 0);
+}
+
+.search-button:hover {
+  background-color: rgb(231, 231, 231);
+  border-radius: 0.3em;
+  cursor: pointer;
+  border-color: rgb(0, 0, 0, 0);
+}
+
+.search-button:active {
+  background-color: rgb(196, 196, 196);
+  border-color: rgb(131, 131, 131);
 }
