@@ -4,6 +4,8 @@ import React from 'react'
 import '../globals.css'
 import { redirect, useRouter } from 'next/navigation'
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
+import Tags from '../home_base/Tags'
+import Tag from '../home_base/Tag'
 
 async function deleteThread(qid: string, router: AppRouterInstance) {
   await fetch("http://localhost:3000/api/threads/remove-thread", {
@@ -21,9 +23,10 @@ async function deleteThread(qid: string, router: AppRouterInstance) {
   router.push("/home")
 }
 
-const QuestionCard = ({ qid="", question="", user="", time="", replyCount="0", upvotes="0", downvotes="0" } : 
+const QuestionCard = ({ qid="", question="", user="", time="", replyCount="0",
+                        upvotes="0", downvotes="0", tags=[] } : 
                       { qid: string, question: string, user: string, time: string, replyCount: string,
-                        upvotes: string, downvotes: string}) => {
+                        upvotes: string, downvotes: string, tags: string[]}) => {
   const router = useRouter()
 
   return (
@@ -51,6 +54,9 @@ const QuestionCard = ({ qid="", question="", user="", time="", replyCount="0", u
             }}/>
           </div>
         </div>
+
+        <Tags words={tags} />
+
         <div className='question-card-global'> {user} </div>
 
         <div className='flex place-content-between question-card-global'>

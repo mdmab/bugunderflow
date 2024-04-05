@@ -748,6 +748,11 @@ video {
   margin-right: calc(5rem * var(--tw-space-x-reverse));
   margin-left: calc(5rem * calc(1 - var(--tw-space-x-reverse)));
 }
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
 .space-x-5 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1.25rem * var(--tw-space-x-reverse));
@@ -1152,6 +1157,15 @@ video {
 
 .navigation-button-selected:hover {
   background-color: rgb(160, 210, 250);
+  cursor: pointer;
+}
+
+.tag-word {
+  background-color: rgb(187, 196, 217);
+  padding: 0.2em;
+  border-radius: 0.2em;
+  margin: 0.3em 0;
+  font-size: 0.9em;
   cursor: pointer;
 }
 

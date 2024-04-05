@@ -229,3 +229,12 @@
   background-color: rgb(160, 210, 250);
   cursor: pointer;
 }
+
+.tag-word {
+  background-color: rgb(187, 196, 217);
+  padding: 0.2em;
+  border-radius: 0.2em;
+  margin: 0.3em 0;
+  font-size: 0.9em;
+  cursor: pointer;
+}
