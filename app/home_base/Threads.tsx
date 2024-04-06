@@ -5,16 +5,6 @@ import React, { useEffect, useMemo, useState } from 'react'
 import QuestionCard from '../home/QuestionCard'
 import { redirect, useRouter } from 'next/navigation'
 
-// async function fetchQuestions() {
-//   return (await fetch("http://localhost:3000/api/threads/get-all", {
-//     method: "GET",
-//     mode: "cors",
-//     headers: {
-//       'Access-Control-Allow-Origin': "*"
-//     }
-//   })).json()
-// }
-
 const Threads = () => {
   const [questions, setQuestions] = useState([])
   const [loaded, setLoaded] = useState(false)

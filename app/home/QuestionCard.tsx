@@ -41,16 +41,7 @@ const QuestionCard = ({ qid="", question="", user="", time="", replyCount="0",
             <img src="/assets/icons/trash_dark.svg" width={20} height={20} className='hover:cursor-pointer'
             onClick={() => {
               deleteThread(qid, router)
-              // fetch("http://localhost:3000/api/threads/remove-thread", {
-              //   method: "POST",
-              //   mode: "cors",
-              //   headers: {
-              //     "Content-Type" : "application/json"
-              //   },
-              //   body: JSON.stringify({
-              //     qid: qid
-              //   })
-              // }).then((res) => router.refresh())
+              window.location.href = window.origin
             }}/>
           </div>
         </div>
