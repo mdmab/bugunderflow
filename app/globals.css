@@ -139,8 +139,16 @@
 }
 
 .comment-box {
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(240, 240, 240);
+  border-width: 0.1em;
+  border-color: rgb(210, 210, 210);
   padding: 0.3em;
+}
+
+.comment-box:focus {
+  outline: none;
+  background-color: rgb(220, 220, 220);
+  border-color: rgb(120, 120, 120);
 }
 
 .comment-button {
@@ -241,12 +249,20 @@
 }
 
 .search-bar {
-  background-color: rgb(241, 241, 241);
+  background-color: rgb(240, 240, 240);
   border-width: 0.1em;
-  border-color: rgb(190, 190, 190);
-  border-radius: 0.3em;
+  border-color: rgb(210, 210, 210);
+  /* border-radius: 0.3em; */
   padding: 0.3em;
   font-family: sans-serif;
+}
+
+.search-bar:focus {
+  outline: none;
+  border-radius: 0em;
+  border-width: 0.1em;
+  border-color: rgb(120, 120, 120);
+  background-color: rgb(220, 220, 220);
 }
 
 .search-button {

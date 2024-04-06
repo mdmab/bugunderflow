@@ -4,6 +4,7 @@ import React from 'react'
 import AnswerCard from './AnswerCard'
 import NavigationBar from '@/app/home_base/NavigationBar'
 import { NAV_NONE } from '@/app/home_base/constants'
+import Tags from '@/app/home_base/Tags'
 
 const serverUrl = "localhost"
 
@@ -27,14 +28,15 @@ const postReply = async (qid_: string, aid_: string, author_: string,
     method: "POST",
     mode: "cors",
     headers: {
-    "Content-Type" : "application/json",
+      "Content-Type" : "application/json",
     },
     body: JSON.stringify({
-    qid: qid_,
-    aid: aid_,
-    author: author_,
-    content: content_,
-    createdAt: prettyDate(date)
+      qid: qid_,
+      aid: aid_,
+      author: author_,
+      content: content_,
+      createdAt: prettyDate(date)
+      
     })
   })
 }
@@ -67,6 +69,7 @@ const ThreadPage = async ({qid="0", refreshFunc} : {qid: string, refreshFunc: ()
           <div className='flex-col grow'>
             <div className='thread-question'> {quesThread.thread.title} </div>
             <div style={{"fontStyle" : "italic"}}> by {quesThread.thread.authorUsername} </div>
+            <Tags words={quesThread.thread.tags} />
             <div className='thread-desc'> {quesThread.thread.content} </div>
             
             <div className='flex grow place-content-between items-center thread-misc'>
