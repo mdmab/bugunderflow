@@ -5,6 +5,7 @@ import AnswerCard from './AnswerCard'
 import NavigationBar from '@/app/home_base/NavigationBar'
 import { NAV_NONE } from '@/app/home_base/constants'
 import Tags from '@/app/home_base/Tags'
+import { hardRefresh } from '@/app/home_base/util'
 
 const serverUrl = "localhost"
 
@@ -96,7 +97,8 @@ const ThreadPage = async ({qid="0", refreshFunc} : {qid: string, refreshFunc: ()
               <button className='comment-button'
               onClick={() => {
                 postReply(qid, maxAid + 1, "mdmab_sust", reply, new Date())
-                refreshFunc()
+                // refreshFunc()
+                hardRefresh()
               }}>
                 Comment
               </button>

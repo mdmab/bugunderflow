@@ -1,3 +1,4 @@
+import { hardRefresh } from '@/app/home_base/util'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 
@@ -53,7 +54,8 @@ const AnswerCard = ({ qid=0, aid=0, author="", content="", upvotes=0, downvotes=
             
             <div className='flex hover:bg-gray-200' style={{ "padding": "0.2em" }} onClick={() => {
               deleteAnswer(qid, aid)
-              router.refresh()
+              // router.refresh()
+              hardRefresh()
             }}
             >
               <img src="/assets/icons/trash_dark.svg" height={trashIconSize} width={trashIconSize + 5} />

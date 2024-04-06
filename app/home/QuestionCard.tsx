@@ -6,6 +6,7 @@ import { redirect, useRouter } from 'next/navigation'
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 import Tags from '../home_base/Tags'
 import Tag from '../home_base/Tag'
+import { hardRefresh } from '../home_base/util'
 
 async function deleteThread(qid: string, router: AppRouterInstance) {
   await fetch("http://localhost:3000/api/threads/remove-thread", {
@@ -41,7 +42,7 @@ const QuestionCard = ({ qid="", question="", user="", time="", replyCount="0",
             <img src="/assets/icons/trash_dark.svg" width={20} height={20} className='hover:cursor-pointer'
             onClick={() => {
               deleteThread(qid, router)
-              window.location.href = window.origin
+              hardRefresh()
             }}/>
           </div>
         </div>

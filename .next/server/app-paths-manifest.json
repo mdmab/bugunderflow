@@ -1,11 +1,7 @@
 {
   "/thread/[qid]/page": "app/thread/[qid]/page.js",
   "/home/page": "app/home/page.js",
-  "/api/threads/get-all/route": "app/api/threads/get-all/route.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/api/threads/remove-thread/route": "app/api/threads/remove-thread/route.js",
   "/thread/new/page": "app/thread/new/page.js",
-  "/api/threads/post-thread/route": "app/api/threads/post-thread/route.js",
-  "/page": "app/page.js",
-  "/api/threads/get/route": "app/api/threads/get/route.js"
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/api/threads/get-all/route": "app/api/threads/get-all/route.js"
 }
