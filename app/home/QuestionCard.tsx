@@ -48,7 +48,9 @@ const QuestionCard = ({ qid="", question="", user="", time="", replyCount="0",
         </div>
 
         <div className='question-card-global'> {user} </div>
-        <Tags words={tags} />
+        <div>
+          <Tags words={tags} />
+        </div>
 
         <div className='flex place-content-between question-card-global'>
           <div className='flex place-content-end space-x-2'>

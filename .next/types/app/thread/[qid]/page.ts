@@ -1,4 +1,4 @@
-// File: /Users/muhtasim/Projects/Academic/low/bug-under-flow/app/thread/[qid]/page.tsx
+// File: /Users/muhtasim/Projects/Others/bug-underflow/app/thread/[qid]/page.tsx
 import * as entry from '../../../../../app/thread/[qid]/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

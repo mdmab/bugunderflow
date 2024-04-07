@@ -637,6 +637,12 @@ video {
 .h-px {
   height: 1px;
 }
+.h-\[10vh\] {
+  height: 10vh;
+}
+.h-\[4vh\] {
+  height: 4vh;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -681,6 +687,12 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.w-\[80vw\] {
+  width: 80vw;
+}
+.w-\[10vw\] {
+  width: 10vw;
 }
 .min-w-\[8rem\] {
   min-width: 8rem;
@@ -831,6 +843,10 @@ video {
 .bg-popover {
   background-color: hsl(var(--popover));
 }
+.bg-slate-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+}
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
@@ -968,6 +984,9 @@ video {
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+.filter {
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .backdrop-blur-2xl {
   --tw-backdrop-blur: blur(40px);

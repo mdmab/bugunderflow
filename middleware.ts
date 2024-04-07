@@ -7,13 +7,15 @@ export default authMiddleware({
   publicRoutes: ['/',
                  '/home',
                  '/threads/new',
+                 '/search',
 
                  '/api/threads/get-all',
                  '/api/threads/get',
                  '/api/threads/post-thread',
                  '/api/threads/post-reply',
                  '/api/threads/remove-reply',
-                 '/api/threads/remove-thread'
+                 '/api/threads/remove-thread',
+                 '/api/search'
                 //  '/mobile'
                 ]
   // Routes that can always be accessed, and have

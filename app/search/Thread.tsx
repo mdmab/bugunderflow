@@ -1,0 +1,57 @@
+import React from 'react'
+import Tags from '../home_base/Tags'
+import { hardPush } from '../home_base/util'
+
+const Thread = ({qid="", title="", authorUsername="",
+    createdAt="", answerCount="", upvotes="", downvotes="", tags=[]} : { 
+    qid: string, title: string, authorUsername: string, createdAt: string, answerCount: string,
+    upvotes: string, downvotes: string, tags: string[]
+  }) => {
+  return (
+    <div className='flex-col grow question-card-global' style={{
+      "padding" : "1em 0 0 0"
+    }}>
+      <div className='hover:underline hover:cursor-pointer question'
+      onClick={() => hardPush('/thread/' + qid)}>
+        {title}
+      </div>
+
+      <div className='sthread-author'>
+        {authorUsername}
+      </div>
+
+      <Tags words={tags}/>
+      
+      <div className='flex grow place-content-between w-[80vw] space-x-5'>
+      
+        <div className='flex w-[10vw] space-x-2'>
+         <div className='flex question-card-global question-card-info'>
+            <img src="/assets/icons/upvote.svg" width={20} height={20} />
+            {upvotes}
+          </div>
+          <div className='flex question-card-global question-card-info'>
+            <img src="/assets/icons/downvote.svg" width={20} height={20} />
+            {downvotes}
+          </div>
+        </div>
+      
+        <div className='question-card-global question-card-info'>
+          Replies: {answerCount}
+        </div>
+      
+        <div className='question-card-global question-card-info'>
+          Created at: {createdAt}
+        </div>
+      </div>
+
+      <div className='flex items-center justify-center h-[4vh]'>
+        <hr style={{
+          "border" : "1px dashed black",
+          "width" : "90vw"
+        }} />
+      </div>
+    </div>
+  )
+}
+
+export default Thread

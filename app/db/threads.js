@@ -172,6 +172,55 @@ export async function deleteReply(qid, aid) {
     })
 }
 
+export async function search(searchString) {
+    let words = searchString.split(" ").filter(word => word != "").join("|")
+    console.log("[SEARCH] Searching...")
+
+    const res = (await db.collection("new_questions").find({
+        "title": {
+            "$regex" : words,
+            "$options" : "i"
+        }}, {
+        "projection" : {
+            "qid": 1,
+            "title" : 1,
+            "content" : 1,
+            "tags" : 1,
+            "views" : 1,
+            "upvotes" : {
+                "$size" : "$upvoters"
+            },
+            "downvotes" : {
+                "$size" : "$downvoters"
+            },
+            "upvoters" : 1,
+            "downvoters" : 1,
+            "authorUsername" : 1,
+            "createdAt" : 1,
+            "answerCount" : {
+                "$size" : "$answers"
+            },
+            "answers" : {
+                "aid" : 1,
+                "authorUsername" : 1,
+                "views" : 1,
+                "createdAt" : 1,
+                "content" : 1,
+                "upvotes" : {
+                    "$size" : "$upvoters"
+                },
+                "downvotes" : {
+                    "$size" : "$downvoters"
+                },
+                "upvoters" : 1,
+                "downvoters" : 1
+            }
+        }
+    }).toArray())
+
+    return res
+}
+
 // export default {
 //     retrieveThreads,
 //     retrieveThreadById,

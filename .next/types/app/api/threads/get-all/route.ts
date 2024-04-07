@@ -1,4 +1,4 @@
-// File: /Users/muhtasim/Projects/Academic/low/bug-under-flow/app/api/threads/get-all/route.ts
+// File: /Users/muhtasim/Projects/Others/bug-underflow/app/api/threads/get-all/route.ts
 import * as entry from '../../../../../../app/api/threads/get-all/route.js'
 import type { NextRequest } from 'next/server.js'
 

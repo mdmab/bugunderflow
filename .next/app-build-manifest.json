@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/thread/[qid]/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/thread/[qid]/page.js"
+      "static/chunks/app/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -17,20 +17,20 @@
       "static/css/app/home/page.css",
       "static/chunks/app/home/page.js"
     ],
-    "/page": [
+    "/thread/[qid]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+      "static/chunks/app/thread/[qid]/page.js"
     ],
     "/thread/new/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/thread/new/page.js"
     ],
-    "/sign-in/[[...sign-in]]/page": [
+    "/search/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/sign-in/[[...sign-in]]/page.js"
+      "static/chunks/app/search/page.js"
     ]
   }
 }
