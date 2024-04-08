@@ -230,6 +230,19 @@ export async function addView(qid) {
     })
 }
 
+export async function retrieveThreadsSortedByView() {
+    console.log("[DEUBG] Retrieving the threads, sorted by their view count...")
+    const records = (await db.collection("new_questions").find({}, {
+        "projection" : {
+            "_id" : 0,
+            "qid" : 1,
+            "title" : 1
+        }
+    }).sort({ "views" : -1 }).limit(5).toArray())
+
+    return records
+}
+
 // export default {
 //     retrieveThreads,
 //     retrieveThreadById,

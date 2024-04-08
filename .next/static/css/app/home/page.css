@@ -664,6 +664,9 @@ video {
 .w-4 {
   width: 1rem;
 }
+.w-\[0\.8vw\] {
+  width: 0.8vw;
+}
 .w-\[100vw\] {
   width: 100vw;
 }
@@ -685,6 +688,9 @@ video {
 .w-\[70vw\] {
   width: 70vw;
 }
+.w-\[7vw\] {
+  width: 7vw;
+}
 .w-\[80vw\] {
   width: 80vw;
 }
@@ -696,15 +702,6 @@ video {
 }
 .w-full {
   width: 100%;
-}
-.w-\[5vw\] {
-  width: 5vw;
-}
-.w-\[8vw\] {
-  width: 8vw;
-}
-.w-\[7vw\] {
-  width: 7vw;
 }
 .min-w-\[8rem\] {
   min-width: 8rem;
@@ -854,10 +851,6 @@ video {
 }
 .bg-popover {
   background-color: hsl(var(--popover));
-}
-.bg-slate-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
 }
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
@@ -1157,7 +1150,7 @@ video {
 
 .add-new-thread-button {
   padding: 0.3em;
-  margin: 1em;
+  margin: 2em 1em;
 }
 
 .submit-button {
@@ -1254,6 +1247,11 @@ video {
   font-size: 4em;
   font-weight: 100;
   color: rgb(193, 193, 193);
+}
+
+.most-viewed-thread-list {
+  font-family: sans-serif;
+  font-size: 0.8em;
 }
 
 .before\:absolute::before {

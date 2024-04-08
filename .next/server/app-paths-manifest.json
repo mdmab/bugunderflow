@@ -2,9 +2,9 @@
   "/profile/page": "app/profile/page.js",
   "/home/page": "app/home/page.js",
   "/thread/[qid]/page": "app/thread/[qid]/page.js",
-  "/api/threads/get-all/route": "app/api/threads/get-all/route.js",
-  "/api/threads/add-view/route": "app/api/threads/add-view/route.js",
-  "/api/threads/get/route": "app/api/threads/get/route.js",
   "/search/page": "app/search/page.js",
-  "/api/search/route": "app/api/search/route.js"
+  "/api/threads/get-most-viewed-threads/route": "app/api/threads/get-most-viewed-threads/route.js",
+  "/api/threads/get-all/route": "app/api/threads/get-all/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/thread/new/page": "app/thread/new/page.js"
 }

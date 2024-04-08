@@ -10,6 +10,7 @@ export default authMiddleware({
                  '/search',
 
                  '/api/threads/get-all',
+                 '/api/threads/get-most-viewed-threads',
                  '/api/threads/get',
                  '/api/threads/post-thread',
                  '/api/threads/post-reply',
