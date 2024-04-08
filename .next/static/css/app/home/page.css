@@ -622,11 +622,17 @@ video {
 .h-\[20vh\] {
   height: 20vh;
 }
+.h-\[4vh\] {
+  height: 4vh;
+}
 .h-\[50vh\] {
   height: 50vh;
 }
 .h-\[5vh\] {
   height: 5vh;
+}
+.h-\[80vh\] {
+  height: 80vh;
 }
 .h-\[85vh\] {
   height: 85vh;
@@ -636,12 +642,6 @@ video {
 }
 .h-px {
   height: 1px;
-}
-.h-\[10vh\] {
-  height: 10vh;
-}
-.h-\[4vh\] {
-  height: 4vh;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -664,6 +664,9 @@ video {
 .w-\[100vw\] {
   width: 100vw;
 }
+.w-\[10vw\] {
+  width: 10vw;
+}
 .w-\[15vw\] {
   width: 15vw;
 }
@@ -679,6 +682,9 @@ video {
 .w-\[70vw\] {
   width: 70vw;
 }
+.w-\[80vw\] {
+  width: 80vw;
+}
 .w-\[85vw\] {
   width: 85vw;
 }
@@ -687,12 +693,6 @@ video {
 }
 .w-full {
   width: 100%;
-}
-.w-\[80vw\] {
-  width: 80vw;
-}
-.w-\[10vw\] {
-  width: 10vw;
 }
 .min-w-\[8rem\] {
   min-width: 8rem;
@@ -842,10 +842,6 @@ video {
 }
 .bg-popover {
   background-color: hsl(var(--popover));
-}
-.bg-slate-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
 }
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
@@ -1235,6 +1231,13 @@ video {
 .search-button:active {
   background-color: rgb(196, 196, 196);
   border-color: rgb(131, 131, 131);
+}
+
+.found-nothing-page {
+  font-family: "Gill Sans", sans-serif;
+  font-size: 4em;
+  font-weight: 100;
+  color: rgb(193, 193, 193);
 }
 
 .before\:absolute::before {

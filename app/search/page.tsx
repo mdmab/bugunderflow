@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import TopbarPc from '../home_base/TopbarPc'
 import Thread from './Thread'
 import { ScrollArea } from '@/components/ui/scroll-area'
+import FoundNothingPage from './FoundNothingPage'
 
 const page = () => {
   const searchParams = useSearchParams()
@@ -36,7 +37,7 @@ const page = () => {
       <ScrollArea>
         <div className='flex grow items-center justify-center'>
           <div className='flex-col items-center justify-center'>
-            {threads?.map((thread: { 
+            {threads?.length === 0 ? <FoundNothingPage /> : threads?.map((thread: { 
               qid: string, title: string, authorUsername: string, createdAt: string, answerCount: string,
               upvotes: string, downvotes: string, tags: string[]
             }) => <Thread qid={thread.qid} title={thread.title} authorUsername={thread.authorUsername} 

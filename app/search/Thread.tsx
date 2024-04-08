@@ -11,16 +11,17 @@ const Thread = ({qid="", title="", authorUsername="",
     <div className='flex-col grow question-card-global' style={{
       "padding" : "1em 0 0 0"
     }}>
-      <div className='hover:underline hover:cursor-pointer question'
+      <div className='flex grow place-content-between hover:underline hover:cursor-pointer question'
       onClick={() => hardPush('/thread/' + qid)}>
-        {title}
+        <div>
+          {title}
+        </div>
       </div>
 
       <div className='sthread-author'>
         {authorUsername}
+        <Tags words={tags}/>
       </div>
-
-      <Tags words={tags}/>
       
       <div className='flex grow place-content-between w-[80vw] space-x-5'>
       
@@ -47,7 +48,7 @@ const Thread = ({qid="", title="", authorUsername="",
       <div className='flex items-center justify-center h-[4vh]'>
         <hr style={{
           "border" : "1px dashed black",
-          "width" : "90vw"
+          "width" : "80vw"
         }} />
       </div>
     </div>

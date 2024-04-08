@@ -2,7 +2,5 @@
   "/home/page": "app/home/page.js",
   "/thread/[qid]/page": "app/thread/[qid]/page.js",
   "/search/page": "app/search/page.js",
-  "/api/threads/get-all/route": "app/api/threads/get-all/route.js",
-  "/api/search/route": "app/api/search/route.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js"
+  "/api/search/route": "app/api/search/route.js"
 }
