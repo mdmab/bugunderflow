@@ -221,6 +221,15 @@ export async function search(searchString) {
     return res
 }
 
+export async function addView(qid) {
+    console.log("[DEBUG] Incrementing the view count for qid " + qid + "...")
+    await db.collection("new_questions").updateOne({ "qid" : Number(qid) }, {
+        "$inc" : {
+            "views" : 1
+        }
+    })
+}
+
 // export default {
 //     retrieveThreads,
 //     retrieveThreadById,

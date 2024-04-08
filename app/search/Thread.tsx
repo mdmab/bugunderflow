@@ -12,7 +12,13 @@ const Thread = ({qid="", title="", authorUsername="",
       "padding" : "1em 0 0 0"
     }}>
       <div className='flex grow place-content-between hover:underline hover:cursor-pointer question'
-      onClick={() => hardPush('/thread/' + qid)}>
+      onClick={() => {
+        fetch("http://localhost:3000/api/threads/add-view?qid=" + qid, {
+          method: "POST",
+          mode: "cors"
+        })
+        hardPush('/thread/' + qid)
+      }}>
         <div>
           {title}
         </div>

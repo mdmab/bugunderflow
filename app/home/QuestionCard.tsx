@@ -36,7 +36,13 @@ const QuestionCard = ({ qid="", question="", user="", time="", replyCount="0",
         <div className='flex question-card-global question'>
           <div className='flex flex-row grow justify-between'>
             <div className='hover:underline hover:cursor-pointer'
-            onClick={() => router.push('/thread/' + qid)}>
+            onClick={() => {
+              fetch("http://localhost:3000/api/threads/add-view?qid=" + qid, {
+                method: "POST",
+                mode: "cors"
+              })
+              router.push('/thread/' + qid)
+            }}>
               {question}
             </div>
             <img src="/assets/icons/trash_dark.svg" width={20} height={20} className='hover:cursor-pointer'

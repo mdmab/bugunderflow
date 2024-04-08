@@ -10,6 +10,13 @@ const Page = () => {
   const router = useRouter()
   const params = useParams()
 
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/api/threads/add-view?qid=" + params.qid.toString(), {
+  //     method: "POST",
+  //     mode: "cors"
+  //   })
+  // }, [])
+
   return (
     <div>
       <ThreadPage qid={"" + params.qid.toString()} refreshFunc={() => router.refresh()}/>

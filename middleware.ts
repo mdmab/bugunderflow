@@ -15,6 +15,7 @@ export default authMiddleware({
                  '/api/threads/post-reply',
                  '/api/threads/remove-reply',
                  '/api/threads/remove-thread',
+                 '/api/threads/add-view',
                  '/api/search'
                 //  '/mobile'
                 ]
