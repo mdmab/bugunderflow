@@ -17,7 +17,7 @@ const page = () => {
       <TopbarPc />
       <div className='flex grow'>
         <NavigationBar mode={NAV_PROFILE} />
-        <div style={{ "margin" : "1em" }}
+        <div style={{ "margin" : "1em 10em" }}
         className='flex grow items-center justify-left space-x-2'>
           {
             auth.isSignedIn && auth.isLoaded && user.user?.fullName ?
