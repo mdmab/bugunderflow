@@ -595,6 +595,9 @@ video {
 .grid {
   display: grid;
 }
+.hidden {
+  display: none;
+}
 .h-2 {
   height: 0.5rem;
 }
@@ -693,6 +696,15 @@ video {
 }
 .w-full {
   width: 100%;
+}
+.w-\[5vw\] {
+  width: 5vw;
+}
+.w-\[8vw\] {
+  width: 8vw;
+}
+.w-\[7vw\] {
+  width: 7vw;
 }
 .min-w-\[8rem\] {
   min-width: 8rem;
@@ -842,6 +854,10 @@ video {
 }
 .bg-popover {
   background-color: hsl(var(--popover));
+}
+.bg-slate-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
 }
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
