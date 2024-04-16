@@ -231,7 +231,7 @@ export async function addView(qid) {
 }
 
 export async function retrieveThreadsSortedByView() {
-    console.log("[DEUBG] Retrieving the threads, sorted by their view count...")
+    console.log("[DEBUG] Retrieving the threads, sorted by their view count...")
     const records = (await db.collection("new_questions").find({}, {
         "projection" : {
             "_id" : 0,
@@ -239,6 +239,25 @@ export async function retrieveThreadsSortedByView() {
             "title" : 1
         }
     }).sort({ "views" : -1 }).limit(5).toArray())
+
+    return records
+}
+
+export async function retrieveThreadsByAuthor(authorUsername) {
+    console.log("[RETRIEVE] Retrieving the threads written by " + authorUsername + "...")
+    const records = (await db.collection("new_questions").find({
+        "authorUsername" : authorUsername
+    }).toArray())
+
+    return records
+}
+
+export async function retrieveThreadsByQidAndAuthor(qid, authorUsername) {
+    console.log("[RETRIEVE] Retrieving the threads written by " + authorUsername + "...")
+    const records = (await db.collection("new_questions").find({
+        "authorUsername" : authorUsername,
+        "qid" : Number(qid)
+    }).toArray())
 
     return records
 }

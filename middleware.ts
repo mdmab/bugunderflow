@@ -8,6 +8,7 @@ export default authMiddleware({
                  '/home',
                  '/threads/new',
                  '/search',
+                 '/my-threads',
 
                  '/api/threads/get-all',
                  '/api/threads/get-most-viewed-threads',

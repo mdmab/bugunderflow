@@ -7,17 +7,17 @@ import { NAV_HOME } from '../home_base/constants'
 
 const Homepage = () => {
   return (
-  <div className="flex-col h-[100vh]">
-    {/* <h1> Absurdly home... </h1>
-    <h1> Absurdly not home... </h1> */}
-    {/* <TopbarPc /> */}
-    <TopbarPc />
-    <div className='flex'>
-      <NavigationBar mode={NAV_HOME} />
-      <Threads />
-      <Sidebar />
+    <div className="flex-col h-[100vh]">
+      {/* <h1> Absurdly home... </h1>
+      <h1> Absurdly not home... </h1> */}
+      {/* <TopbarPc /> */}
+      <TopbarPc />
+      <div className='flex'>
+        <NavigationBar mode={NAV_HOME} />
+        <Threads />
+        <Sidebar />
+      </div>
     </div>
-  </div>
   )
 }
 

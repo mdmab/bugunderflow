@@ -2,7 +2,7 @@
 
 import React from 'react'
 import NavigationButton from './NavigationButton'
-import { NAV_COMMUNITY, NAV_FIND_JOBS, NAV_HOME, NAV_PROFILE } from './constants'
+import { NAV_COMMUNITY, NAV_FIND_JOBS, NAV_HOME, NAV_MY_THREADS, NAV_PROFILE } from './constants'
 import { hardPush } from './util'
 import { useRouter } from 'next/navigation'
 
@@ -15,8 +15,12 @@ const NavigationBar = ({ mode=NAV_HOME } : { mode: number }) => {
       onClick={() => router.push("/home")}/>
       {/* <NavigationButton label="Community" isSelected={mode == NAV_COMMUNITY ? "yes" : "no"} />
       <NavigationButton label="Find Jobs" isSelected={mode == NAV_FIND_JOBS ? "yes" : "no"} /> */}
+
       <NavigationButton label="Profile" isSelected={mode == NAV_PROFILE ? "yes" : "no"}
       onClick={() => router.push("/profile")}/>
+
+      <NavigationButton label="My Threads" isSelected={mode == NAV_MY_THREADS ? "yes" : "no"}
+      onClick={() => router.push("./my-threads")}/>
     </div>
   )
 }
