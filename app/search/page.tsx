@@ -13,7 +13,7 @@ const page = () => {
   const [threads, setThreads] = useState<
     { 
       qid: string, title: string, authorUsername: string, createdAt: string, answerCount: string,
-      upvotes: string, downvotes: string, tags: string[]
+      upvotes: string, downvotes: string, tags: string[], upvoters: string[], downvoters: string[]
     }[]
   >()
 
@@ -25,7 +25,7 @@ const page = () => {
       mode: "cors"
     }).then(res => res.json()).then((res: { 
       qid: string, title: string, authorUsername: string, createdAt: string, answerCount: string,
-      upvotes: string, downvotes: string, tags: string[]
+      upvotes: string, downvotes: string, tags: string[], upvoters: string[], downvoters: string[]
     }[]) => {
       setThreads(res)
     })
@@ -39,10 +39,13 @@ const page = () => {
           <div className='flex-col items-center justify-center'>
             {threads?.length === 0 ? <FoundNothingPage /> : threads?.map((thread: { 
               qid: string, title: string, authorUsername: string, createdAt: string, answerCount: string,
-              upvotes: string, downvotes: string, tags: string[]
+              upvotes: string, downvotes: string, tags: string[],
+              upvoters: string[], downvoters: string[]
             }) => <Thread qid={thread.qid} title={thread.title} authorUsername={thread.authorUsername} 
                           createdAt={thread.createdAt} upvotes={thread.upvotes} downvotes={thread.downvotes}
                           tags={thread.tags} answerCount={thread.answerCount}
+                          upvoted={false} downvoted={true}
+                          upvoters={thread.upvoters} downvoters={thread.downvoters}
             />)}
           </div>
         </div>

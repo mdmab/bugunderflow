@@ -20,7 +20,7 @@ const NavigationBar = ({ mode=NAV_HOME } : { mode: number }) => {
       onClick={() => router.push("/profile")}/>
 
       <NavigationButton label="My Threads" isSelected={mode == NAV_MY_THREADS ? "yes" : "no"}
-      onClick={() => router.push("./my-threads")}/>
+      onClick={() => router.push("/my-threads")}/>
     </div>
   )
 }

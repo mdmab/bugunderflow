@@ -247,6 +247,28 @@ export async function retrieveThreadsByAuthor(authorUsername) {
     console.log("[RETRIEVE] Retrieving the threads written by " + authorUsername + "...")
     const records = (await db.collection("new_questions").find({
         "authorUsername" : authorUsername
+    }, {
+        "projection": {
+            "qid": 1,
+            "title" : 1,
+            "content" : 1,
+            "tags" : 1,
+            "views" : 1,
+            "upvotes" : {
+                "$size" : "$upvoters"
+            },
+            "downvotes" : {
+                "$size" : "$downvoters"
+            },
+            "upvoters" : 1,
+            "downvoters" : 1,
+            "authorUsername" : 1,
+            "createdAt" : 1,
+            "answerCount" : {
+                "$size" : "$answers"
+            }
+            // "answers" : 1,
+        }
     }).toArray())
 
     return records
@@ -257,9 +279,67 @@ export async function retrieveThreadsByQidAndAuthor(qid, authorUsername) {
     const records = (await db.collection("new_questions").find({
         "authorUsername" : authorUsername,
         "qid" : Number(qid)
+    }, {
+        "projection": {
+            "qid": 1,
+            "title" : 1,
+            "content" : 1,
+            "tags" : 1,
+            "views" : 1,
+            "upvotes" : {
+                "$size" : "$upvoters"
+            },
+            "downvotes" : {
+                "$size" : "$downvoters"
+            },
+            "upvoters" : 1,
+            "downvoters" : 1,
+            "authorUsername" : 1,
+            "createdAt" : 1,
+            "answerCount" : {
+                "$size" : "$answers"
+            }
+            // "answers" : 1,
+        }
     }).toArray())
 
     return records
+}
+
+export async function addToUpvoters(user, qid) {
+    console.log("[ADD] Adding " + user + " to upvoters list for thread " + qid + "...")
+    await db.collection("new_questions").updateOne({ qid: Number(qid) }, {
+        "$push" : {
+            "upvoters" : user
+        }
+    })
+}
+
+export async function removeFromUpvoters(user, qid) {
+    console.log("[REMOVE] Removing " + user + " from upvoters list for thread " + qid + "...")
+    await db.collection("new_questions").updateOne({ qid: Number(qid) }, {
+        "$pull" : {
+            "upvoters" : user
+        }
+    })
+}
+
+export async function addToDownvoters(user, qid) {
+    console.log("[ADD] Adding " + user + " to downvoters list for thread " + qid + "...")
+    await db.collection("new_questions").updateOne({ qid: Number(qid) }, {
+        "$push" : {
+            "downvoters" : user
+        }
+    })
+}
+
+export async function removeFromDownvoters(user, qid) {
+    console.log("[REMOVE] Removing " + user + " from downvoters list for thread " + qid + "...")
+    await db.collection("new_questions").updateOne({ qid: Number(qid) }, {
+        "$pull" : {
+            "downvoters" : user
+        }
+    })
 }
 
 // export default {
