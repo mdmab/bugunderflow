@@ -6,6 +6,7 @@ import NavigationBar from '@/app/home_base/NavigationBar'
 import { NAV_NONE } from '@/app/home_base/constants'
 import Tags from '@/app/home_base/Tags'
 import { hardRefresh } from '@/app/home_base/util'
+import { useUser } from '@clerk/nextjs'
 
 const serverUrl = "localhost"
 
@@ -42,6 +43,21 @@ const postReply = async (qid_: string, aid_: string, author_: string,
   })
 }
 
+async function vote(type: string, name: string, qid: string) {
+  await fetch("http://localhost:3000/api/threads/vote", {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type" : "application/json"
+    },
+    body: JSON.stringify({
+      type: type,
+      name: name,
+      qid: qid
+    })
+  })
+}
+
 const prettyDate = (date: Date) => {
   let day: string = (date.getDate() < 10 ? "0" : "") + date.getDate()
   let month: string = ((date.getMonth() + 1) < 10 ? "0" : "") + (date.getMonth() + 1)
@@ -54,7 +70,8 @@ const prettyDate = (date: Date) => {
   return "" + day + "/" + month + "/" + year + " " + hours + ":" + minutes + ":" + seconds
 }
 
-const ThreadPage = async ({qid="0", refreshFunc} : {qid: string, refreshFunc: () => any}) => {
+const ThreadPage = async ({qid="0", refreshFunc, fullName} : {qid: string, refreshFunc: () => any,
+  fullName: string | null | undefined}) => {
   const quesThread = await fetchQuestionByQid(qid)
   const ansList = quesThread.thread.answers.sort((ans: {aid: number}, ans2: {aid: number}) =>
                  ans2.aid - ans.aid)
@@ -75,14 +92,52 @@ const ThreadPage = async ({qid="0", refreshFunc} : {qid: string, refreshFunc: ()
             
             <div className='flex grow place-content-between items-center thread-misc'>
               <div className='flex grow space-x-2'>
-                <div className='flex'>
-                  <img src="/assets/icons/upvote.svg" width={20} height={20} />
-                  {quesThread.thread.upvotes}
+                
+                <div className='flex hover:cursor-pointer hover:bg-gray-300'
+                onClick={() => {
+                  if (fullName) {
+                    if (quesThread.thread.upvoters.includes(fullName)) {
+                      // upvoters.splice(upvoters.indexOf(fullName))
+                      vote("not up", fullName, qid)
+                    }
+                    else {
+                      // upvoters.push(fullName)
+                      vote("up", fullName, qid)
+                    }
+      
+                    // router.refresh()
+                    refreshFunc()
+                  }
+                }}>
+                  <img src={
+                    quesThread.thread.upvoters.includes(fullName ? fullName : "") ?
+                    "/assets/icons/upvoted.svg": "/assets/icons/upvote.svg"
+                  } width={20} height={20} />
+                  {quesThread.thread.upvoters.length}
                 </div>
-                <div className='flex'>
-                  <img src="/assets/icons/downvote.svg" width={20} height={20} />
-                  {quesThread.thread.downvotes}
+
+                <div className='flex hover:cursor-pointer hover:bg-gray-300'
+                onClick={() => {
+                  if (fullName) {
+                    if (quesThread.thread.downvoters.includes(fullName)) {
+                      // downvoters.splice(downvoters.indexOf(fullName))
+                      vote("not down", fullName, qid)
+                    }
+                    else {
+                      // downvoters.push(fullName)
+                      vote("down", fullName, qid)
+                    }
+      
+                    refreshFunc()
+                  }
+                }}>
+                  <img src={
+                    quesThread.thread.downvoters.includes(fullName ? fullName : "") ?
+                    "/assets/icons/downvoted.svg": "/assets/icons/downvote.svg"
+                  } width={20} height={20} />
+                  {quesThread.thread.downvoters.length}
                 </div>
+
               </div>
               <div className='flex grow place-content-end space-x-20'>
                 <div> Views: {quesThread.thread.views} </div>
